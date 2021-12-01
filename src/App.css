@@ -1,3 +1,14 @@
 .App {
     text-align: center;
-}
+    padding: .5rem;
+  }
+
+  #userImg {
+    width: 300px;
+    border-radius: 3rem;
+  }
+  
+  .followerImg {
+    width: 200px;
+    border-radius: 3rem;
+  }

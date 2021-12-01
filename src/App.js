@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'
 import axios from 'axios';
 import User from './components/User';
+import FollowerList from './components/FollowerList';
 
 class App extends React.Component {
   state = {
@@ -88,6 +89,9 @@ class App extends React.Component {
           </label>
         </form>
         <User user={this.state.user} />
+        <div className='followersDiv'>
+          <FollowerList followers={this.state.followers} />
+        </div>
       </div>);
   }
 }
