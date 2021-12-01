@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css'
 import axios from 'axios';
+import User from './components/User';
 
 class App extends React.Component {
   state = {
@@ -72,20 +73,22 @@ class App extends React.Component {
   }
 
   render() {
-    return (<div className='App'>
-      <h1>Github User Cards</h1>
-      <form onSubmit={this.handleSubmit}>
-        <label>Search&nbsp;
-          <input
-            type='text'
-            name='search'
-            value={this.state.input}
-            onChange={this.handleChange}
-            placeholder='enter Github handle'
-          />
-        </label>
-      </form>
-    </div>);
+    return (
+      <div className='App'>
+        <h1>Github User Cards</h1>
+        <form onSubmit={this.handleSubmit}>
+          <label>Search&nbsp;
+            <input
+              type='text'
+              name='search'
+              value={this.state.input}
+              onChange={this.handleChange}
+              placeholder='enter Github handle'
+            />
+          </label>
+        </form>
+        <User user={this.state.user} />
+      </div>);
   }
 }
 
