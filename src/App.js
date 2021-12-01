@@ -29,6 +29,26 @@ class App extends React.Component {
       })
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.user !== prevState.user) {
+      axios.get(`https://api.github.com/users/${this.state.input}/followers`)
+        .then(res => {
+          this.setState({
+            ...this.state,
+            followers: res.data
+          })
+        })
+        .catch(err => {
+          console.error(err)
+        })
+        .finally(this.setState({
+          ...this.state,
+          input: ''
+        }))
+    }
+
+  }
+
   render() {
     return (<div className='App'>
       <h1>Github User Cards</h1>
